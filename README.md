@@ -62,7 +62,7 @@ if __name__ == "__main__":
         fcoin = client.get_userinfo()["fcoin"]                        #查询F币剩余数量
         if fcoin <= 249:
             break                                                     #当F币剩249个时，不再获取数据
-        data = client.get_data(query_str,page=page,fields="ip,city")  #查询第page页数据的ip和城市
+        data = client.get_data(query_str,page=page,size=100,fields="ip,city")  #查询第page页100条数据的ip和城市
         for ip,city in data["results"]:
             print "%s,%s"%(ip,city)                                   #打印出每条数据的ip和城市
 ```
